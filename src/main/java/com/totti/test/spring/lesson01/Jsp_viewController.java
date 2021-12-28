@@ -1,4 +1,4 @@
-package com.totti.test;
+package com.totti.test.spring.lesson01;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
