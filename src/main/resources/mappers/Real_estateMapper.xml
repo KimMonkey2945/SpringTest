@@ -25,6 +25,7 @@
  	</select>
  -->
  	
+ <!-- 
  	 <select id="selectReal_estateRentPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="int">
  	
  	 	SELECT
@@ -40,11 +41,31 @@
  		FROM
  			`real_estate`
  		WHERE
- 			`rentPrice` = #{rentPrice}
+ 			 #{rentPrice} > `rentPrice` 
  
+ 	
  	</select>
+  -->	
+ 	 	 <select id="selectAreaPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="int">
  	
+ 	 	SELECT
+ 			`id`
+ 			,`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+ 			 #{area} > `area` AND #{price} > `price`	 
+ 		ORDER BY `createdAt` DESC;
+ 
  	
+ 	</select>
  	
  	
  

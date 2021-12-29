@@ -1,5 +1,7 @@
 package com.totti.test.lesson03.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,14 @@ public class Real_estateBO {
 //		return real_estateDAO.selectReal_estate(id);
 //	}
 	
-	public Real_estate getReal_estateRentPrice(int rentPrice) {
-		return real_estateDAO.selectReal_estateRentPrice(rentPrice);
+//	public List<Real_estate> getReal_estateRentPrice(int rentPrice) {
+//		return real_estateDAO.selectReal_estateRentPrice(rentPrice);			
+//		
+//	}
+	
+	public List<Real_estate> getAreaPrice(int area, int price) {
+		return real_estateDAO.selectAreaPrice(area, price);
+		
 	}
+	
 }
