@@ -25,7 +25,7 @@
  	</select>
  -->
  	
- <!-- 
+  
  	 <select id="selectReal_estateRentPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="int">
  	
  	 	SELECT
@@ -41,12 +41,15 @@
  		FROM
  			`real_estate`
  		WHERE
- 			 #{rentPrice} > `rentPrice` 
+ 			   <![CDATA[`rentPrice`< #{rentPrice}]]>
+ 			   <!-- 얼마나 잡아줘도 상관없음 부등호만 잡아줘도 상관없음.... --> 
  
  	
  	</select>
-  -->	
- 	 	 <select id="selectAreaPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="int">
+  	
+ 
+  	 
+ 	 <select id="selectAreaPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="map">
  	
  	 	SELECT
  			`id`
@@ -61,12 +64,62 @@
  		FROM
  			`real_estate`
  		WHERE
- 			 #{area} > `area` AND #{price} > `price`	 
- 		ORDER BY `createdAt` DESC;
- 
+ 		 	`type`='매매' AND
+ 		 	`area`>= #{area} AND 
+ 		 	`price`<![CDATA[<]]> #{price} 	 
+ 		ORDER BY `id` DESC;
+ 			<!-- 등록일은 createdAt도 괜찮지만 id를 사용도 가능   -->
  	
  	</select>
- 	
+  
+   <!-- 구글링 시 단어를 좀 생각하고 구글링하길.... -->
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  <!-- 	  
+   <insert id="insertReal_estate" parameterType="com.totti.test.lesson03.model.Real_estate">
+   
+   	INSERT INTO `real_estate`
+	   	(
+	 		,`realtorId`
+	 		,`address`
+	 		,`area`
+	 		,`type`
+	 		,`price`
+	 		,`createdAt`
+	 		,`updatedAt`
+	   	)
+   
+   	VALUES
+	   	(
+	   		#{3}
+	   		,#{푸르지용 리버 303동 1104호}
+	   		,#{89}
+	   		,#{매매}
+	   		,#{100000}
+	   		,NOW()
+	   		,NOW()
+	   	)
+   
+   </insert>
+   --> 
+   
+   
+   
+   
+   
+   	
  	
  
  </mapper>

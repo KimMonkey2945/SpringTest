@@ -12,8 +12,35 @@ public interface Real_estateDAO {
 
 //	public Real_estate selectReal_estate(@Param("id") int id);
 	
-//	public Real_estate selectReal_estate(@Param("rentPrice") int rentPrice);
+	public List<Real_estate> selectReal_estateRentPrice(@Param("rentPrice") int rentPrice);
 	
 	public List<Real_estate> selectAreaPrice(@Param("area") int area, @Param("price") int price);
 	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public Real_estate insertReal_estate(Real_estate real_estate);
+		
 }
+
+
+
+//public Map<String, Object> insertReal_estate()
+//	@Param("id") int id,
+//	@Param("realtorId") int realtorId,
+//	@Param("address") String address,
+//	@Param("area") int area,
+//	@Param("type") String type,
+//	@Param("price") int price,
+//	@Param("rentPrice") int rentPrice,
+//	@Param("createdAt") Date createdAt,
+//	@Param("updatedAt") Date updatedAt;

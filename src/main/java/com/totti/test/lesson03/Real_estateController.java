@@ -21,14 +21,46 @@ public class Real_estateController {
 //		return real_estateBO.getreal_estate(id);
 //	}
 	
-//	@RequestMapping("/lesson03/test01/2")
-//	public List<Real_estate> real_estateRentPrice(@RequestParam("rentPrice") int rentPrice) {	
-//		return real_estateBO.getReal_estateRentPrice(rentPrice);
-//	}
+	
+	//뒷부분(다른곳의) 파라미터와는 이름이 달라도 상관없음.... 흐름을 기억하기...
+	@RequestMapping("/lesson03/test01/2")
+	public List<Real_estate> real_estateRentPrice(@RequestParam("rentPrice") int rentPrice) {	
+		return real_estateBO.getReal_estateRentPrice(rentPrice);
+	}
 	
 	@RequestMapping("/lesson03/test01/3")
 	public List<Real_estate> real_estateRentPrice(@RequestParam("area") int area, @RequestParam("price") int price) {	
 		return  real_estateBO.getAreaPrice(area, price);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	@RequestMapping("/lesson03/test02/1")
+//	public Real_estate insetReal_estate(Real_estate real_estate) {
+//		return real_estateBO.getInsertReal_estate(real_estate);
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
