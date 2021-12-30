@@ -34,9 +34,11 @@ public class Real_estateController {
 	}
 
 	@RequestMapping("/lesson03/test02/1")
+//	public String insertTest01() {
 	public String insertTest01(@Param("realtorId") int realtorId) {
+
 //		int count = real_estateBO.addReal_estate(3, "푸르지용리버 303동", 89, "매매", 100000);
-//		return "입력 성공 :" + count;
+//		return "입력성공 :" + count;
 		
 		Real_estate real_estate = new Real_estate();
 		real_estate.setRealtorId(realtorId);
@@ -49,5 +51,29 @@ public class Real_estateController {
 		int count = real_estateBO.addReal_estateAsObject(real_estate);
 		return "입력성공 : " + count;
 	}
+	
+	@RequestMapping("/lesson03/test03")
+	public String updateTest01(@Param("id") int id, @Param("type") String type, @Param("price") int price) {
+		return "수정성공 : " + real_estateBO.modifyReal_estate(id, type, price);
+	}
+	
+	
+	
+	@RequestMapping("/lesson03/test04")
+	public String deleteTest01(@Param("id") int id) {
+		return "삭제성공 :" + real_estateBO.delReal_estate(id); 
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

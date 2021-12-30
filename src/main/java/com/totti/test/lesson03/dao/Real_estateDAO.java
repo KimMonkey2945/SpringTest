@@ -1,6 +1,5 @@
 package com.totti.test.lesson03.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -28,7 +27,15 @@ public interface Real_estateDAO {
 	public int insertReal_estateAsObject(Real_estate real_estate);
 		
 	
+	public int updateReal_estate
+			(@Param("id") int id,
+			@Param("type") String type,
+			@Param("price") int price
+			);
 	
+	
+	public int deleteReal_estate
+		(@Param("id") int id);
 	
 	
 	

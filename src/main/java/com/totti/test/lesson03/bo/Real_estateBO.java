@@ -37,4 +37,15 @@ public class Real_estateBO {
 		return real_estateDAO.insertReal_estateAsObject(real_estate);
 	}
 
+	
+	public int modifyReal_estate(int id, String type, int price) {
+			return real_estateDAO.updateReal_estate(id, type, price);
+	}
+	
+	public int delReal_estate(int id) {
+		return real_estateDAO.deleteReal_estate(id);
+	}
+	
+	
+	
 }

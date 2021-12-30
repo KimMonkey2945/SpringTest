@@ -131,6 +131,25 @@
    </insert>
    
    
+   <update id="updateReal_estate" parameterType="map">
+   
+	UPDATE `real_estate`
+   	SET
+   		`type` = #{type} , `price` = #{price}
+   		
+   	WHERE
+   		`id` = #{id} 
+   
+   </update>
+   
+   <delete id ="deleteReal_estate" parameterType="int">
+   
+   	DELETE
+   	FROM `real_estate`
+   	WHERE 
+   		`id` = #{id}
+   
+   </delete>
    
    	
  	
