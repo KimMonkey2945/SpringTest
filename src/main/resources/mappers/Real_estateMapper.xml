@@ -47,7 +47,6 @@
  	
  	</select>
   	
- 
   	 
  	 <select id="selectAreaPrice" resultType="com.totti.test.lesson03.model.Real_estate" parameterType="map">
  	
@@ -75,47 +74,61 @@
    <!-- 구글링 시 단어를 좀 생각하고 구글링하길.... -->
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-  <!-- 	  
-   <insert id="insertReal_estate" parameterType="com.totti.test.lesson03.model.Real_estate">
+    
+   <insert id="insertReal_estate" parameterType="map">
    
    	INSERT INTO `real_estate`
 	   	(
-	 		,`realtorId`
+	 		`realtorId`
 	 		,`address`
 	 		,`area`
 	 		,`type`
 	 		,`price`
 	 		,`createdAt`
-	 		,`updatedAt`
+ 			,`updatedAt`
 	   	)
    
    	VALUES
 	   	(
-	   		#{3}
-	   		,#{푸르지용 리버 303동 1104호}
-	   		,#{89}
-	   		,#{매매}
-	   		,#{100000}
+	   		#{realtorId}
+	   		,#{address}
+	   		,#{area}
+	   		,#{type}
+	   		,#{price}
 	   		,NOW()
 	   		,NOW()
 	   	)
    
    </insert>
-   --> 
    
    
+   <insert id="insertReal_estateAsObject" parameterType="com.totti.test.lesson03.model.Real_estate">
+   
+   	INSERT INTO `real_estate`
+	   	(
+	 		`realtorId`
+	 		,`address`
+	 		,`area`
+	 		,`type`
+	 		,`price`
+	 		,`rentPrice`
+	 		,`createdAt`
+ 			,`updatedAt`
+	   	)
+   
+   	VALUES
+	   	(
+	   		#{realtorId}
+	   		,#{address}
+	   		,#{area}
+	   		,#{type}
+	   		,#{price}
+	   		,#{rentPrice}
+	   		,NOW()
+	   		,NOW()
+	   	)
+   
+   </insert>
    
    
    

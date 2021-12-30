@@ -19,31 +19,22 @@ public class Real_estateBO {
 //	}
 
 	public List<Real_estate> getReal_estateRentPrice(int rentPrice) {
-		return real_estateDAO.selectReal_estateRentPrice(rentPrice);		
-		
+		return real_estateDAO.selectReal_estateRentPrice(rentPrice);
+
 	}
 
 	public List<Real_estate> getAreaPrice(int area, int price) {
 		return real_estateDAO.selectAreaPrice(area, price);
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-//	public Real_estate getInsertReal_estate(Real_estate real_estate) {
-//		return  real_estateDAO.insertReal_estate(real_estate);
-//	
-//	}
+	public int addReal_estate(int realtorId, String address, int area, String type, int price ) {
+			return real_estateDAO.insertReal_estate(realtorId, address, area, type, price);
+	
+	}
+	
+	public int addReal_estateAsObject(Real_estate real_estate) {
+		return real_estateDAO.insertReal_estateAsObject(real_estate);
+	}
 
 }
