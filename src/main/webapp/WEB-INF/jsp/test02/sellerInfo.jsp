@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import= "java.util.*, java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,31 +19,19 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
-<title>판매자 추가</title>
+	
+<title>판매자정보</title>
 </head>
 
-
 <body>
-
-	
-	<form method="get" action="/lesson04/test01/add_seller">
 	
 		<div class="container">
-			<h2>판매자 추가</h2>
-			<div class="mt-2">닉네임<input class="form-control col-3" type="text" name="nickName"></div>
-			<div class="mt-2">프로필 사진 url<input class="form-control" type="text" name="profileImageUrl"></div>
-			<div class="mt-2">온도<input class="form-control col-3" type="text" name="temperature"></div>
-			
-			<div class="mt-2"><input class="btn form-control bg-primary col-1" type="submit" value="추가"></div>		
+			<h4>${title}</h4>
+			<img width=150px alt="다팔아의프로필이미지" src="${result.profileImageUrl }" name="rofileImageUrl">
+			<h3 class="mt-2" name="nickName">${result.nickName}</h3>
+			<div class=" text-warning" name="temperature">${result.temperature}</div>
 		</div>
 	
-	
-	</form>
-
-
-
-
-
 
 </body>
 
