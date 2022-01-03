@@ -19,21 +19,34 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
-	
-<title>판매자정보</title>
+<title>공인중개사정보</title>
 </head>
-
 <body>
-	
-		<div class="container">
-			<h4>${title}</h4>
-			<img width=120px alt="다팔아의프로필이미지" src="${result.profileImageUrl }" name="rofileImageUrl">
-			<h3 class="mt-2" name="nickName">${result.nickName}</h3>
-			<div class=" text-warning" name="temperature">${result.temperature}</div>
-		</div>
-	
+	<div class="container">
+		<h1>공인중개사 정보</h1>
+		<table class="table">
+			<tr>
+				<th>ID</th>
+				<td></td>	
+			</tr>
+			<tr>
+				<th>상호명</th>
+				<td></td>	
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td></td>	
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td></td>	
+			</tr>
+			<tr>
+				<th>등급</th>
+				<td></td>	
+			</tr>
+		</table>
+	</div>
 
 </body>
-
-
 </html>

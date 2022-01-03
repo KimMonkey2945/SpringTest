@@ -19,19 +19,24 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
-	
-<title>판매자정보</title>
+<title>공인중개사추가</title>
 </head>
 
 <body>
-	
+	<form method="get" action="/lesson04/test02/add_realtor">
 		<div class="container">
-			<h4>${title}</h4>
-			<img width=120px alt="다팔아의프로필이미지" src="${result.profileImageUrl }" name="rofileImageUrl">
-			<h3 class="mt-2" name="nickName">${result.nickName}</h3>
-			<div class=" text-warning" name="temperature">${result.temperature}</div>
+			<h1>공인중개사추가</h1>
+			<labe>상호명</labe><input class="form-control col-6" type="text" name="office">
+			<labe>전화번호</labe><input class="form-control col-6" type="text" name="phoneNumber">
+			<labe>주소</labe><input class="form-control col-6" type="text" name="address">
+			<labe>등급</labe><input class="form-control col-6" type="text" name="grade">
+			<input class="btn btn-primary mt-3" type="submit" value="추가">
 		</div>
-	
+	</form>
+
+
+
+
 
 </body>
 

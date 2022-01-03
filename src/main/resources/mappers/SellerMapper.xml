@@ -37,14 +37,12 @@
 			,`updatedAt`
 		FROM
 			`seller`
+		ODER BY `id` DESC;
 		WHERE
-			`id`= #{id}
-
-
-
+			`id` = #{id}
+		
 
 	</select>
-
 
 
 

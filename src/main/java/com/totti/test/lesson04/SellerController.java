@@ -33,8 +33,14 @@ public class SellerController {
 		return "입력성공 : " + count;}
 	
 	
-	@RequestMapping("/lesson04/test01/seller_info")
-	public String getSeller(Model model, @RequestParam(value="id", required = false, defaultValue="21") int id) {
+	@RequestMapping("/lesson04/test01/seller_info")//required =false일때 래퍼클래스 파라미터 해줘야함....
+	public String getSeller(Model model, @RequestParam(value="id", required = false) Integer id) {
+		
+		if(id==null) {
+			Seller seller = sellerBO.
+		}
+		
+		
 		
 		Seller seller = sellerBO.getSeller(id);
 		
@@ -44,7 +50,6 @@ public class SellerController {
 		return "/test02/sellerInfo";
 	
 	}
-	
 	
 	
 	

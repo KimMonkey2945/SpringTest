@@ -27,7 +27,7 @@
 <body>
 
 	
-	<form method="get" action="/lesson04/test01/add_seller">
+	<form method="post" action="/lesson04/test01/add_seller">
 	
 		<div class="container">
 			<h2>판매자 추가</h2>
@@ -37,7 +37,6 @@
 			
 			<div class="mt-2"><input class="btn form-control bg-primary col-1" type="submit" value="추가"></div>		
 		</div>
-	
 	
 	</form>
 
