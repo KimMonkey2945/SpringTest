@@ -9,14 +9,11 @@ import com.totti.test.lesson04.model.Seller;
 public interface SellerDAO {
 
 	public int insertSeller(
-	@Param("nickName") String nickName
-	,@Param("profileImageUrl") String profileImageUrl
-	,@Param("temperature") double temperature);
+			@Param("nickName") String nickName
+			,@Param("profileImageUrl") String profileImageUrl
+			,@Param("temperature") double temperature);
 	
-	public Seller selectSeller(
-			@Param("id")int id
-			);
+	public Seller selectLastSeller();
 	
-	
-	
+	public Seller selectSeller(@Param("id") int id);
 }

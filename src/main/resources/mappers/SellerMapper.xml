@@ -1,55 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.totti.test.lesson04.dao.SellerDAO">
-
-	<insert id="insertSeller" parameterType="map">
-
-		INSERT INTO `seller`
-		(
-		`nickName`
-		,`profileImageUrl`
-		,`temperature`
-		,`createdAt`
-		,`updatedAt`
-		)
-
-		VALUES
-		(
-		#{nickName}
-		,#{profileImageUrl}
-		,#{temperature}
-		,NOW()
-		,NOW()
-		)
-
-	</insert>
-
-	<select id="selectSeller" resultType="com.totti.test.lesson04.model.Seller" parameterType="int">
-		SELECT
-			`id`
-			,`nickname`
-			,`profileImageUrl`
-			,`temperature`
-			,`createdAt`
-			,`updatedAt`
-		FROM
-			`seller`
-		ODER BY `id` DESC;
-		WHERE
-			`id` = #{id}
-		
-
-	</select>
-
-
-
-
-
-
-
-
-
-</mapper>
+ 
+ <mapper namespace="com.totti.test.lesson04.dao.SellerDAO">
+ 	
+ 	<insert id="insertSeller" parameterType="map">
+ 		INSERT INTO `seller`
+ 		(
+ 			`nickName`
+ 			,`profileImageUrl`
+ 			,`temperature`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES
+ 		(
+ 			#{nickName}
+ 			,#{profileImageUrl}
+ 			,#{temperature}
+ 			,now()
+ 			,now()
+ 		)
+ 	</insert>
+ 
+ 	<select id="selectLastSeller" resultType="com.totti.test.lesson04.model.Seller">
+ 		SELECT
+ 			`id`
+ 			,`nickname`
+ 			, `profileImageUrl`
+ 			, `temperature`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`seller`
+ 		ORDER BY `id` DESC
+ 		LIMIT 1
+ 	</select>
+ 
+ 
+ 	<select id="selectSeller" resultType="com.totti.test.lesson04.model.Seller" parameterType="int">
+ 		SELECT
+ 			`id`
+ 			, `nickname`
+ 			, `profileImageUrl`
+ 			, `temperature`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`seller`
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	</select>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </mapper>

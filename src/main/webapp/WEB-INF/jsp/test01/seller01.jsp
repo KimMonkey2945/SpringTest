@@ -27,7 +27,7 @@
 <body>
 
 	
-	<form method="post" action="/lesson04/test01/add_seller">
+	<form method="get" action="/lesson04/test01/add_seller">
 	
 		<div class="container">
 			<h2>판매자 추가</h2>
