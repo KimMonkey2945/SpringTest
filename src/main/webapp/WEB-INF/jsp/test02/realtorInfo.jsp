@@ -27,23 +27,23 @@
 		<table class="table">
 			<tr>
 				<th>ID</th>
-				<td></td>	
+				<td>${result.id }</td>	
 			</tr>
 			<tr>
 				<th>상호명</th>
-				<td></td>	
+				<td>${result.office }</td>	
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td></td>	
+				<td>${result.phoneNumber }</td>	
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td></td>	
+				<td>${result.address }</td>	
 			</tr>
 			<tr>
 				<th>등급</th>
-				<td></td>	
+				<td>${result.grade }</td>	
 			</tr>
 		</table>
 	</div>

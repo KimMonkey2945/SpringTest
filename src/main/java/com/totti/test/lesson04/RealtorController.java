@@ -2,11 +2,13 @@ package com.totti.test.lesson04;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.totti.test.lesson04.bo.RealtorBo;
+import com.totti.test.lesson04.model.Realtor;
 
 @Controller
 public class RealtorController {
@@ -20,15 +22,14 @@ public class RealtorController {
 		return "/test02/realtor";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/lesson04/test02/add_realtor")
+	
+	@PostMapping("/lesson04/test02/add_realtor")
 	public String addRealtor
-	(@RequestParam("office") String office
-	,@RequestParam("phoneNumber") String phoneNumber
-	,@RequestParam("address") String address
-	,@RequestParam("grade") String grade
-			) {
-		int count = realtorBO.addRealtor(office, phoneNumber, address, grade);
-		return "입력성공 : " + count;
+	(@ModelAttribute Realtor realtor, Model model) {
+
+		 realtorBO.addRealtor(realtor); //메서드 호출 자체에 의미가 있는것임...
+		 //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임... //메서드 호출 자체에 의미가 있는것임...
+		model.addAttribute("result", realtor);
+		return "test02/realtorInfo";
 	}
 }

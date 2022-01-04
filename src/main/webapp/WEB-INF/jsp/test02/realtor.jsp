@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	<form method="get" action="/lesson04/test02/add_realtor">
+	<form method="post" action="/lesson04/test02/add_realtor">
 		<div class="container">
 			<h1>공인중개사추가</h1>
 			<labe>상호명</labe><input class="form-control col-6" type="text" name="office">

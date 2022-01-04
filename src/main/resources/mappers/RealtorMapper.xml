@@ -5,7 +5,8 @@
  
  <mapper namespace="com.totti.test.lesson04.dao.RealtorDAO">
  
- 	<insert id="insertRealtor" parameterType="map">
+ 	<insert id="insertRealtor" parameterType="com.totti.test.lesson04.model.Realtor"
+ 	useGeneratedKeys="true" keyProperty="id">
  		INSERT INTO	`realtor`
  		(
  		`office`

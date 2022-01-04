@@ -41,7 +41,7 @@ public class SellerController {
 //		
 //		return "test01/sellerInfo";
 //	}
-	
+	// 비 필수 파라미터는 래퍼클래스로 표시해줘야함.....
 	@RequestMapping("/lesson04/test01/seller_info")
 	public String getSeller(Model model, @RequestParam(value="id", required=false) Integer id ) {
 		if(id == null) {
