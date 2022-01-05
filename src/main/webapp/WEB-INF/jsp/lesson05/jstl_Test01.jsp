@@ -24,9 +24,29 @@
 	
 	<h1>3. core out</h1>
 	<c:out value="<title>core out</title>"/>
+	<!-- 브라우저가 태그로 인식해서 화면출력X -->
 	
 	<h1>4. core if</h1>
 	
+	<c:set var="average" value="${(number1 + number2)/2}"/>
+	<c:if test="${average >= 10 }">
+		<h1>${average }</h1>
+	</c:if>
+		
+	<c:if test="${average < 10 }">
+		<h3>${average }</h3>
+	</c:if>	
+	
+	
+	<!--  
+	<c:if test="${(number1 + number2)/2 >10 }">
+		<h1>${(number1 + number2)/2}</h1>
+	</c:if>
+	
+	<c:if test="${(number1 + number2)/2 < 10 }">
+		<h3>${(number1 + number2)/2}</31>
+	</c:if>
+	-->
 	<!--<c:choose>
 		<c:when test="${(number1+number2)/2 >= 10 }">
 			<h1>${(number1+number2)/2 }</h1>
