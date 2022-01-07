@@ -4,8 +4,35 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.totti.test.lesson05.dao.WeatherDAO">
+ 	 
+ 	<insert id="insertWeather" parameterType="com.totti.test.lesson05.model.Weather">
+ 		INSERT INTO `weatherhistory`
+ 		(	`date`
+ 			,`weather`
+ 			,`temperatures`
+ 			,`precipitation`
+ 			,`microDust`
+ 			,`windSpeed`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES
+ 		(
+ 			#{date}
+ 			,#{weather}
+ 			,#{temperatures}
+ 			,#{precipitation}
+ 			,#{microDust}
+ 			,#{windSpeed}
+ 			,now()
+ 			,now()
+ 		)
+ 	</insert>
+ 
+ 		
+ 		
+ 	
  	<select id="selectWeather" resultType="com.totti.test.lesson05.model.Weather">
- 		SELECT 
+ 		SELECT
  			`date`
  			,`weather`
  			,`temperatures`
@@ -16,9 +43,7 @@
  			,`updatedAt`
  		FROM
  			`weatherhistory`
- 	
- 		
- 		
  	</select>
+ 	
  
  </mapper>

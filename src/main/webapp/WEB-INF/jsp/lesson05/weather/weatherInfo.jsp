@@ -23,19 +23,24 @@
 	crossorigin="anonymous"></script>
 <title>기상청</title>
 </head>
+
 <body>
+	
 	<div class="container">
-		<div>
-			<div class="logo"><img alt="기상청로고" src="https://cdn.ilyoseoul.co.kr/news/photo/202012/434545_351639_2648.jpg">기상청</div>
-			<ul>
-				<li>날씨</li>
-				<li>날씨입력</li>
-				<li>테마날씨</li>
-				<li>관측기후</li>
-			</ul>
-		</div>
+	<div class="d-flex">
+		<div class=" col-2 bg-primary">
+				<div class="logo text-center "><img width=30px alt="기상청로고" src="">기상청</div>
+				<ul class="nav">
+					<li class="nav-item"><a class="nav-link text-light" href="#">날씨</a></li>
+					<li class="nav-item"><a class="nav-link text-light" href="#">날씨입력</a></li>
+					<li class="nav-item"><a class="nav-link text-light" href="#">테마날씨</a></li>
+					<li class="nav-item"><a class="nav-link text-light" href="#">관측기후</a></li>
+				</ul>
+			</div>
+			<div>
 		
-		<div>
+		<div class="ml-4">
+			<h2>과거날씨</h2>
 			<table class="table text-center">
 				<tr>
 					<th>날짜</th>
@@ -48,20 +53,36 @@
 			
 			<c:forEach var="weathers" items="${weather }">
 				<tr>
-					<th>${weathers.date }</th>
-					<th>${weathers.weather }</th>
-					<th>${weathers.temperatures }</th>
-					<th>${weathers.precipitation }</th>
-					<th>${weathers.microDust }</th>
-					<th>${weathers.windSpeed }</th>
+	
+					<fmt:formatDate value="${weathers.date }" pattern="yyyy년 M월 d일" var="date"/>
+					<td>${date}</td>
+					<c:choose> 
+						<c:when test="${weathers.weather eq '맑음' }">
+							<td><img alt="햇살이미지" src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg"></td>
+						</c:when>
+						<c:when test="${weathers.weather eq '구름조금' }">
+							<td><img alt="구름이미지" src="http://marondal.com/material/images/dulumary/web/jstl/partlyCloudy.jpg"></td>
+						</c:when>
+						<c:when test="${weathers.weather eq '흐림' }">
+							<td><img alt="흐린이미지" src="http://marondal.com/material/images/dulumary/web/jstl/cloudy.jpg"></td>
+						</c:when>
+						<c:otherwise><td><img alt="비이미지" src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg"></td></c:otherwise>
+					</c:choose>
+					<td>${weathers.temperatures }</td>
+					<td>${weathers.precipitation }mm</td>
+					<td>${weathers.microDust }</td>
+					<td>${weathers.windSpeed }km/h</td>
 				</tr>
 			</c:forEach>
 			
 			</table>
 			
 		</div>
-	
+		</div>
+		
 	</div>
-
+	<div class="small d-flex justify-content-left">(07062) 서울시 동작구 여의대방로16길 61 | 대표전화 (02)2181-0900 (평일 9:00~18:00, 야간휴일은 당직실 연결)<br> 
+		Copyright@2020 KMA. All Rights RESERVED. 전자우편: webmasterkma@korea.kr</div>
+	
 </body>
 </html>
