@@ -1,4 +1,4 @@
-package com.totti.test.lesson05;
+package com.totti.test.lesson05.model;
 
 public class Member {
 
