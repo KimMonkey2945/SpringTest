@@ -4,11 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.totti.test.lesson05.bo.WeatherBO;
 import com.totti.test.lesson05.model.Weather;
@@ -37,18 +37,20 @@ public class WeatherHistoryController {
 		return "lesson05/weather/addWeather";
 	}
 	
-	@ResponseBody
+	
 	@GetMapping("/lesson05/add_Weather")
-	public String addWeather(@RequestParam("date") String date
-			,@RequestParam("weather") String weather
-			,@RequestParam("temperatures") double temperatures
-			,@RequestParam("precipitation") double precipitation
-			,@RequestParam("microDust") String microDust
-			,@RequestParam("windSpeed") double windSpeed,
-			Model model) {
-		int count = weatherBO.addWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
+	public String addWeather
+		(@RequestParam(value="date") @DateTimeFormat(pattern = "yyyy-MM-dd")Date date
+		,@RequestParam("weather") String weather
+		,@RequestParam("temperatures") String temperatures
+		,@RequestParam("precipitation") double precipitation
+		,@RequestParam("microDust") String micoriDust
+		,@RequestParam("windSpeed") double windSpeed
+			) {
+		weatherBO.addWeather(date, weather, windSpeed, precipitation, micoriDust, windSpeed);
 		
-		return   " " + count;
+		return "lesson05/weather/weatherInfo";
+	
 	}
 	
 	

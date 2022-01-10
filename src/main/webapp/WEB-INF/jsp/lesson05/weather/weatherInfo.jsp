@@ -21,6 +21,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/resources/CSS/style.css">
 <title>기상청</title>
 </head>
 
@@ -29,10 +30,10 @@
 	<div class="container">
 	<div class="d-flex">
 		<div class=" col-2 bg-primary">
-				<div class="logo text-center "><img width=30px alt="기상청로고" src="">기상청</div>
+				<div class="logo text-center "><img class="bg-primary" width=30px alt="기상청로고" src="file:///C:/Users/User/Downloads/ci_20160630%20(1)/1%20%EA%B8%B0%EC%83%81%EC%B2%AD_%ED%95%9C%EA%B8%80_%EC%83%81%ED%95%98.jpg"></div>
 				<ul class="nav">
 					<li class="nav-item"><a class="nav-link text-light" href="#">날씨</a></li>
-					<li class="nav-item"><a class="nav-link text-light" href="#">날씨입력</a></li>
+					<li class="nav-item"><a class="nav-link text-light" href="/lesson05/weatherView"">날씨입력</a></li>
 					<li class="nav-item"><a class="nav-link text-light" href="#">테마날씨</a></li>
 					<li class="nav-item"><a class="nav-link text-light" href="#">관측기후</a></li>
 				</ul>

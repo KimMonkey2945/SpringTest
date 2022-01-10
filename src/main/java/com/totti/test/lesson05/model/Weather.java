@@ -2,6 +2,8 @@ package com.totti.test.lesson05.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Weather {
 
 	private int id;
