@@ -5,7 +5,10 @@
  
  <mapper namespace="com.totti.test.lesson05.dao.WeatherDAO">
  	 
- 	<insert id="insertWeather" parameterType="com.totti.test.lesson05.model.Weather">
+ 	 
+ 	 
+ 	 
+ 	<insert id="insertWeather" parameterType="map">  <!-- 하나하나 받을때는 맵 객체형태로 받을 때는 그 객체를 타입으로 받음-->
  		INSERT INTO `weatherhistory`
  		(	`date`
  			,`weather`
@@ -30,7 +33,7 @@
  
  		
  		
- 	
+ 	<!-- resultType은 내가 전달해줄 클래스 생각해서 잡는거임 -->
  	<select id="selectWeather" resultType="com.totti.test.lesson05.model.Weather">
  		SELECT
  			`date`
