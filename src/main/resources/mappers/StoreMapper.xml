@@ -34,7 +34,6 @@
  		FROM
  			`new_review` ORDER BY `id` DESC
  		WHERE
- 			`storeId` = #{storeId}
- 			,`name` = #{name}	
+ 			`storeId` = #{storeId}, `name` = #{name}	
  	</select>
  </mapper>
