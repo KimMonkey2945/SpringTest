@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.totti.test.lesson06.dao.SiteDAO">
+ 
+ 	<select id="selectSite" resultType="com.totti.test.lesson06.model.Site">
+ 		
+ 		SELECT 
+	 		`id`
+	 		,`name`
+	 		,`address`
+	 		,`createdAt`
+	 		,`updatedAt`
+	 	FROM
+	 		`site`
+ 	</select>
+ 	
+ 	<insert id="insertSite" parameterType="map">
+ 		INSERT INTO `site`
+ 		(	
+ 			`name`
+ 			,`address`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES
+ 		(
+ 			#{name}
+ 			,#{address}
+ 			,now()
+ 			,now()
+ 		)
+ 			
+ 	
+ 	
+ 	</insert>
+ 
+ </mapper>
