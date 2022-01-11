@@ -6,6 +6,7 @@ public class New_Review {
 
 	private int id;
 	private int storeId;
+	private String name;
 	private String menu;
 	private String userName;
 	private double point;
@@ -25,6 +26,12 @@ public class New_Review {
 	}
 	public void setStoreId(int storeId) {
 		this.storeId = storeId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getMenu() {
 		return menu;
@@ -62,6 +69,8 @@ public class New_Review {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
 	
 	
 	

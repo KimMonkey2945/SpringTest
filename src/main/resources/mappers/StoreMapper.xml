@@ -16,7 +16,24 @@
  			,`updatedAt`
  		FROM
  			`store`
- 	
  	</select>
  
+ 
+ 
+ 	<select id="selectReview" resultType="com.totti.test.lesson05.model.New_Review" parameterType="map">
+ 		SELECT
+ 			`id`
+ 			,`storeId`
+ 			,`name`
+ 			,`menu`
+ 			,`userName`
+ 			,`point`
+ 			,`review`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`new_review` ORDER BY `id` DESC
+ 		WHERE
+ 			`storeId` = #{storeId}, `name` = #{name}	
+ 	</select>
  </mapper>
