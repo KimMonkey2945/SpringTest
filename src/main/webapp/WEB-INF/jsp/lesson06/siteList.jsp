@@ -27,13 +27,14 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="container">
 	<h1>즐겨찾기목록</h1>
-	<div>
 		<table class="table">
 			<tr>
 				<th>No.</th>
 				<th>이름</th>
 				<th>주소</th>
+				<th></th>
 			</tr>
 			
 		<c:forEach var="sites" items="${site}" varStatus="status">
@@ -41,6 +42,7 @@
 				<td>${status.count }</td>
 				<td>${sites.name }</td>
 				<td>${sites.address }</td>
+				<td><input class="btn btn-danger" type="button" value="삭제"></td>
 			</tr>
 		</c:forEach>
 		</table>

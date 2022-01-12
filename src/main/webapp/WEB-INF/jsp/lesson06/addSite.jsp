@@ -29,14 +29,17 @@
 </head>
 <body>
 
-	<h1>즐겨찾기추가하기</h1>
-	<form method="post" action="/lesson06/test01/1">
-		<div class="container">
-			<label>제목</label> <input class="form-control" type="text" name="name" id="nameInput"> 
-			<label>주소</label> <input class="form-control" type="text" name="address" id="addressInput">
-			<button class=" mt-3 btn btn-success col-12" type="button" id="addBtn">추가</button>
+	<div class="container">
+		<h1>즐겨찾기추가하기</h1>
+			<form method="post" action="/lesson06/test01/1">
+				<label>제목</label> <input class="form-control" type="text" name="name" id="nameInput"> 
+				<label>주소</label>
+				<div class="d-flex"> 
+					<input class="form-control" type="text" name="address" id="addressInput"><input class="btn btn-info ml-3" type="button" name="check" id="checkInput" value="중복확인"> 
+				</div>
+					<button class=" mt-3 btn btn-success col-12" type="button" id="addBtn">추가</button>
+			</form>
 		</div>
-	</form>
 
 	<script>
 		$(document).ready(function() {
@@ -70,15 +73,12 @@
 				$.ajax({
 					type : "post",
 					url : "/lesson06/test01/1",
-					data : {
-						"name" : name,
-						"address" : address
-					},
+					data : {"name" : name, "address" : address},
 					success : function(data) {
 						if (data = "success") {
 							alert("입력성공");
-					//window.location.href = "/lesson06/siteList";	
-							$(location).attr('href', 'http://localhost:8080/lesson06/test01');	
+							//window.location.href = '/lesson06/siteList';	
+							$(location).attr('href', '/lesson06/test01');	
 						} else {
 							alert("입력실패");
 						}

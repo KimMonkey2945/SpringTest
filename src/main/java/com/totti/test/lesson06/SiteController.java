@@ -25,7 +25,7 @@ public class SiteController {
 		return "lesson06/addSite";
 	}
 	
-	@ResponseBody
+	@ResponseBody //api는 형식으로 다시 전달해주는것
 	@PostMapping("/lesson06/test01/1")
 	public String addSite
 	(@RequestParam("name") String name
