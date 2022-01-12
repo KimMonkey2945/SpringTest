@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>즐겨찾기추가</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -62,9 +62,9 @@
 					//return;
 				//}
 
-				if(!address.startsWith('http://') || address.startsWith('https://') ){
-				alert("올바른 주소를 입력하세요!");
-				return;
+				if(!(address.startsWith("http://") || address.startsWith("https://"))){
+						alert("올바른 주소를 입력하세요!");
+						return;
 				}
 
 				$.ajax({
@@ -77,6 +77,8 @@
 					success : function(data) {
 						if (data = "success") {
 							alert("입력성공");
+					//window.location.href = "/lesson06/siteList";	
+							$(location).attr('href', 'http://localhost:8080/lesson06/test01');	
 						} else {
 							alert("입력실패");
 						}

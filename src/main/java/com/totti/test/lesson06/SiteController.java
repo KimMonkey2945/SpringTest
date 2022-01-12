@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +19,6 @@ public class SiteController {
 	@Autowired
 	private SiteBO siteBO;
 	
-	@ResponseBody
-	@GetMapping("/lesson06/test01")
-	public List<Site> getSite(){
-		return siteBO.getSite();
-	}
 	
 	@GetMapping("lesson06/addSiteView")
 	public String siteView() {
@@ -36,7 +32,7 @@ public class SiteController {
 	,@RequestParam("address") String address) 
 	{
 		int count = siteBO.addSite(name, address);
-		
+	
 		if(count == 1) {
 			return "success";
 		}else {
@@ -45,4 +41,16 @@ public class SiteController {
 		
 //		return "입력성공: " + count;
 	}
+	
+	
+	
+	@GetMapping("/lesson06/test01")
+	public String getSite(Model model){
+		List<Site> site =  siteBO.getSite();
+		
+		model.addAttribute("site", site);
+		return "lesson06/siteList";
+	}
+	
+	
 }
