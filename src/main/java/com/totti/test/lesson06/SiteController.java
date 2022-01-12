@@ -43,10 +43,6 @@ public class SiteController {
 			return "fail";
 		}
 		
-		
-		
-		
-		
 //		return "입력성공: " + count;
 	}
 }

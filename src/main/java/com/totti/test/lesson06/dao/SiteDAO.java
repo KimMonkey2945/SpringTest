@@ -13,6 +13,5 @@ public interface SiteDAO {
 	
 	public int insertSite
 	(@Param("name") String name
-	,@Param("address") String address
-			);
+	,@Param("address") String address);
 }
