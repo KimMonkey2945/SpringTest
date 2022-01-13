@@ -42,10 +42,35 @@
 				<td>${status.count }</td>
 				<td>${sites.name }</td>
 				<td>${sites.address }</td>
-				<td><input class="btn btn-danger" type="button" value="삭제"></td>
+				<td><input class="btn btn-danger" type="button" value="삭제" id="deleteBtn"></td>
 			</tr>
 		</c:forEach>
 		</table>
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#deleteBtn").on("click",function(){
+				
+				
+			});
+			
+		});
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>

@@ -21,4 +21,18 @@ public class SiteBO {
 	public int addSite(String name, String address) {
 		return siteDAO.insertSite(name, address);
 	}
+	
+	public boolean checkDuplicate(String address) {
+		int count = siteDAO.selectDuplicateCount(address);
+		
+		if(count == 0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	public List<Site> deleteAddress(){
+		
+	}
 }

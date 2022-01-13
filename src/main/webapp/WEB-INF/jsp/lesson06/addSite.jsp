@@ -13,9 +13,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -35,8 +32,9 @@
 				<label>제목</label> <input class="form-control" type="text" name="name" id="nameInput"> 
 				<label>주소</label>
 				<div class="d-flex"> 
-					<input class="form-control" type="text" name="address" id="addressInput"><input class="btn btn-info ml-3" type="button" name="check" id="checkInput" value="중복확인"> 
+					<input class="form-control" type="text" name="address" id="addressInput"><input class="btn btn-info ml-3" type="button" id="addressCheckBtn" value="중복확인"> 
 				</div>
+				<div class="small text-danger" id="errorAddress">중복된주소입니다.</div>
 					<button class=" mt-3 btn btn-success col-12" type="button" id="addBtn">추가</button>
 			</form>
 		</div>
@@ -44,9 +42,13 @@
 	<script>
 		$(document).ready(function() {
 
+			var isDuplicateAddress = true;
+			$("#errorAddress").hide();
+			
 			$("#addBtn").on("click", function() {
 				let name = $("#nameInput").val();
 				let address = $("#addressInput").val();
+				
 
 				if (name == "") {
 					alert("이름을 입력하세요");
@@ -54,6 +56,11 @@
 				}
 				if (address == "") {
 					alert("주소를 입력하세요");
+					return;
+				}
+				
+				if(isDuplicateAddress){
+					alert("중복된 주소 입니다!!");
 					return;
 				}
 				
@@ -92,6 +99,46 @@
 
 			});
 
+			
+				$("#addressCheckBtn").on("click", function(){
+					let address = $("#addressInput").val();
+					
+					
+					if(address == ""){
+						alert("주소를 입력해주세요!");
+						return;
+					}
+					
+				$.ajax({
+					type:"get",
+					url:"/lesson06/duplicateAddress",
+					data:{"address":address},
+					success:function(data){
+						if(data.isDuplicate == "true"){
+							alert("중복된 주소입니다!!");
+							isDuplicateAddress = true;
+							$("#errorAddress").show();
+							
+						}else{
+							alert("사용 가능합니다.")
+							isDuplicateAddress = false;
+							$("#errorAddress").hide();
+						}
+					},
+					error:function(){
+						alert("에러발생");
+					}
+					
+					
+				});
+					
+				});
+			
+			
+			
+			
+			
+			
 		});
 	</script>
 

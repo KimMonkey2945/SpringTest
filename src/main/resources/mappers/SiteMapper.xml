@@ -31,9 +31,17 @@
  			,now()
  			,now()
  		)
- 			
- 	
  	
  	</insert>
+ 	
+ 	<select id="selectDuplicateCount" parameterType="String" resultType="int">
+ 		SELECT
+ 			count(*)
+ 		FROM
+ 			`site`
+ 		WHERE
+ 			`address` = #{address}
+ 	
+ 	</select>
  
  </mapper>

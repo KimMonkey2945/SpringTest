@@ -1,6 +1,8 @@
 package com.totti.test.lesson06;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,7 @@ public class SiteController {
 	private SiteBO siteBO;
 	
 	
-	@GetMapping("lesson06/addSiteView")
+	@GetMapping("/lesson06/addSiteView")
 	public String siteView() {
 		return "lesson06/addSite";
 	}
@@ -42,8 +44,6 @@ public class SiteController {
 //		return "입력성공: " + count;
 	}
 	
-	
-	
 	@GetMapping("/lesson06/test01")
 	public String getSite(Model model){
 		List<Site> site =  siteBO.getSite();
@@ -51,6 +51,29 @@ public class SiteController {
 		model.addAttribute("site", site);
 		return "lesson06/siteList";
 	}
+	
+	@ResponseBody
+	@GetMapping("/lesson06/duplicateAddress")
+	public Map<String, String> checkDuplicate(@RequestParam("address") String address){
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(siteBO.checkDuplicate(address)) {
+			result.put("isDuplicate", "true");
+		}else {
+			result.put("isDuplicate", "false");
+		}
+		
+		return result;
+	}
+	
+	@ResponseBody
+	@GetMapping("lesson06/deleteAddress")
+	public List<Site> deleteAddress(Model model){
+		
+	}
+	
+	
 	
 	
 }
