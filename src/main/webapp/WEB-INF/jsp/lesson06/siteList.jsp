@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>즐겨찾기목록</h1>
+		<h1>즐겨찾기목록</h1>
 		<table class="table">
 			<tr>
 				<th>No.</th>
@@ -36,41 +36,59 @@
 				<th>주소</th>
 				<th></th>
 			</tr>
-			
-		<c:forEach var="sites" items="${site}" varStatus="status">
-			<tr>
-				<td>${status.count }</td>
-				<td>${sites.name }</td>
-				<td>${sites.address }</td>
-				<td><input class="btn btn-danger" type="button" value="삭제" id="deleteBtn"></td>
-			</tr>
-		</c:forEach>
+
+			<c:forEach var="sites" items="${site}" varStatus="status">
+				<tr>
+					<td>${status.count }</td>
+					<td>${sites.name }</td>
+					<td>${sites.address }</td>
+					<td><button class="deleteBtn btn btn-danger" type="button" ${sites.id }>삭제</button></td>
+					<!--아이디로 할 땐 한가지 밖에 못함. 여러개 일땐 클래스로 잡아오는것이 좋음 -->
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
-	
+
 	<script>
-		$(document).ready(function(){
-			
-			$("#deleteBtn").on("click",function(){
+		$(document).ready(function() {
+
+			$(".deleteBtn").on("click", function() {
+								
+				let name = $(this).data();
 				
-				
+
+				$.ajax({
+					type :"get",
+					url :"/lesson06/deleteAddress",
+					data :{"name": name},
+					success : function(data) {
+						if (data == "success") {
+							alert("삭제성공!!")
+						} else {
+							alert("삭제실패..")
+						}
+					},
+					error : function() {
+						alert("에러발생")
+					}
+
+				});
+
 			});
-			
+
 		});
-	
-	
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

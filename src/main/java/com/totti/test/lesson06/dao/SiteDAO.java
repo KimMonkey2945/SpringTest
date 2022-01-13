@@ -17,5 +17,5 @@ public interface SiteDAO {
 	
 	public int selectDuplicateCount(@Param("address") String address);
 	
-	public int delete
+	public int deleteSite(@Param("name") String name);
 }

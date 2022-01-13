@@ -13,26 +13,27 @@ public class SiteBO {
 
 	@Autowired
 	private SiteDAO siteDAO;
-	
-	public List<Site> getSite(){
+
+	public List<Site> getSite() {
 		return siteDAO.selectSite();
 	}
-	
+
 	public int addSite(String name, String address) {
 		return siteDAO.insertSite(name, address);
 	}
-	
+
 	public boolean checkDuplicate(String address) {
 		int count = siteDAO.selectDuplicateCount(address);
-		
-		if(count == 0) {
+
+		if (count == 0) {
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
-	
-	public List<Site> deleteAddress(){
-		
+
+	public int deleteAddress(String name) {
+		return siteDAO.deleteSite(name);
 	}
+
 }

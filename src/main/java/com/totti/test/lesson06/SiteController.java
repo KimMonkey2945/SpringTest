@@ -67,9 +67,19 @@ public class SiteController {
 		return result;
 	}
 	
+	
 	@ResponseBody
 	@GetMapping("lesson06/deleteAddress")
-	public List<Site> deleteAddress(Model model){
+	public String deleteAddress(String name){
+		
+		int count = siteBO.deleteAddress(name);
+		
+		if(count == 1) {
+			return "success";
+		}else {
+			return "fail";
+		}
+		
 		
 	}
 	

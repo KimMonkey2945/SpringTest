@@ -44,4 +44,23 @@
  	
  	</select>
  
+ 
+ 	<delete id="deleteSite" parameterType="String">
+ 		DELETE
+ 		FROM
+ 			`site`
+ 		WHERE
+ 			name = #{name}
+ 	</delete>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  </mapper>
