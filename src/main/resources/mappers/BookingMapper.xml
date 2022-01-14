@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.totti.test.lesson06.dao.BookingDAO">
+ 
+ 	<insert id="insertBooking" parameterType="map">
+ 		INSERT INTO	`booking`
+ 		(
+ 			`name`
+ 			,`date`
+ 			,`day`
+ 			,`headcount`
+ 			,`phoneNumber`
+ 			,`state`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES(
+ 			#{name}
+ 			,#{date}
+ 			,#{day}
+ 			,#{headcount}
+ 			,#{phoneNumber}
+ 			,#{state}
+ 			,now()
+ 			,now() 		
+ 		)
+ 		 	
+ 	</insert>
+ 	
+ 	<select id="selectBooking" resultType="com.totti.test.lesson06.model.Booking">
+ 		SELECT
+ 			`name`
+ 			,`date`
+ 			,`day`
+ 			,`headcount`
+ 			,`phoneNumber`
+ 			,`state`
+ 		FROM
+ 			`booking`
+ 	</select>
+ 	
+ 	<delete id="deleteList" parameterType="int">
+ 		DELETE
+ 			count(*)
+ 		FROM
+ 			`booking`
+ 		WHERE
+ 			`id` = #{id}
+ 		
+ 		
+ 	
+ 	</delete>
+ 
+ </mapper>
