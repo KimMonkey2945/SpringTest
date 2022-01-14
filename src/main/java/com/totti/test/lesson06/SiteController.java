@@ -70,9 +70,9 @@ public class SiteController {
 	
 	@ResponseBody
 	@GetMapping("lesson06/deleteAddress")
-	public String deleteAddress(String name){
+	public String deleteAddress(@RequestParam("id") int id){
 		
-		int count = siteBO.deleteAddress(name);
+		int count = siteBO.deleteAddress(id);
 		
 		if(count == 1) {
 			return "success";

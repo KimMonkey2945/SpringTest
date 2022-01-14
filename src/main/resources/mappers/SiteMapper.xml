@@ -45,12 +45,12 @@
  	</select>
  
  
- 	<delete id="deleteSite" parameterType="String">
+ 	<delete id="deleteSite" parameterType="int">
  		DELETE
  		FROM
  			`site`
  		WHERE
- 			name = #{name}
+ 			id = #{id}
  	</delete>
  
  

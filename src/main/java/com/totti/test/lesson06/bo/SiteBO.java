@@ -32,8 +32,8 @@ public class SiteBO {
 		}
 	}
 
-	public int deleteAddress(String name) {
-		return siteDAO.deleteSite(name);
+	public int deleteAddress(int id) {
+		return siteDAO.deleteSite(id);
 	}
 
 }

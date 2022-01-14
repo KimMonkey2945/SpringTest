@@ -42,7 +42,7 @@
 					<td>${status.count }</td>
 					<td>${sites.name }</td>
 					<td>${sites.address }</td>
-					<td><button class="deleteBtn btn btn-danger" type="button" ${sites.id }>삭제</button></td>
+					<td><button class="deleteBtn btn btn-danger" type="button" data-sites-id="${sites.id }">삭제</button></td>
 					<!--아이디로 할 땐 한가지 밖에 못함. 여러개 일땐 클래스로 잡아오는것이 좋음 -->
 				</tr>
 			</c:forEach>
@@ -54,21 +54,22 @@
 
 			$(".deleteBtn").on("click", function() {
 								
-				let name = $(this).data();
+				let id = $(this).data("sites-id");
 				
 
 				$.ajax({
-					type :"get",
-					url :"/lesson06/deleteAddress",
-					data :{"name": name},
-					success : function(data) {
+					type:"get",
+					url:"/lesson06/deleteAddress",
+					data:{"id": id},
+					success: function(data) {
 						if (data == "success") {
 							alert("삭제성공!!")
+							location.reload();
 						} else {
 							alert("삭제실패..")
 						}
 					},
-					error : function() {
+					error: function() {
 						alert("에러발생")
 					}
 
