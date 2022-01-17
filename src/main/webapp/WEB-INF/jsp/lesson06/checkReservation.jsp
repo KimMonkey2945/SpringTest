@@ -58,17 +58,13 @@
 
 
 
-					<label class="input-label">이름 </label> <input type="text"
-						class="form-control text-input" id="nameInput">
-
+					<label class="input-label">이름 </label> <input type="text" class="form-control text-input" name="name" id="nameInput">
 					<div class="input-gorup form-inline mt-3">
-						<label class="input-label">전화번호 </label> <input type="text"
-							class="form-control text-input" id="phoneNumberInput">
+						<label class="input-label">전화번호 </label> <input type="text" class="form-control text-input" name="phoneNumber" id="phoneNumberInput">
 					</div>
 
 					<div class="d-flex justify-content-end">
-						<button class="btn btn-success mt-3 mr-5" id="checkBtn">조회
-							하기</button>
+						<button class="btn btn-success mt-3 mr-5" id="checkBtn">조회하기</button>
 					</div>
 				</div>
 		</article>
@@ -112,10 +108,12 @@
 			$.ajax({
 				type:"get",
 				url:"/lesson06/searchReservation",
+				//밑에데이터 안의 00은 컨트롤러의 파라미터와 같아야함
 				data:{"name":name, "phoneNumber":phoneNumber},
+				//data 자체가 객체를 가지고 있는 키가됨...
 				success:function(data){
-					if(data == "confirm"){
-						alert();
+					if(data.searchReservation == "true"){
+						
 					}else{
 						alert("조회 결과가 없습니다..");
 					}
@@ -124,7 +122,7 @@
 					alert("에러발생");
 				}
 				
-			});
+				});
 				
 			});
 			

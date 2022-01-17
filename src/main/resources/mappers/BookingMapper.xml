@@ -48,7 +48,7 @@
  			`id` = #{id}
  	</delete>
  	
- 	<select id="selectReservation" resultType="int" parameterType="map">
+ 	<select id="selectReservation" resultType="int" parameterType="String">
  		SELECT
  			`name`
  			,`date`
@@ -57,6 +57,9 @@
  			,`state`
  		FROM
  			`booking`
+ 		WHERE
+ 			`name` = #{name} 
+ 			, `phoneNumber` = #{phoneNumber}
  	</select>
  	
  

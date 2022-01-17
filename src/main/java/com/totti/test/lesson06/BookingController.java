@@ -17,6 +17,8 @@ import com.totti.test.lesson06.model.Booking;
 @Controller
 public class BookingController {
 	
+	
+	//Autowired를 통해서 스프링이 객체를 생성해줌
 	@Autowired
 	private BookingBO bookingBO;
 	
@@ -25,6 +27,7 @@ public class BookingController {
 		return "lesson06/addBooking";
 	}
 	
+	//이제는 map형태로 받기
 	@ResponseBody
 	@GetMapping("/lesson06/addBooking")
 	public String addBooking(
@@ -36,7 +39,7 @@ public class BookingController {
 			){
 		
 		String state = "대기중";
-		
+		// bo에 셋팅해도 됨...
 		
 		int count = bookingBO.addBooking(name, date, day, headcount, phoneNumber, state);
 		
@@ -71,6 +74,11 @@ public class BookingController {
 		}else {
 			return "success";
 		}
+		//어떤 형태로든 규격을 만드는게 좋음....
+		//성공시 {result:"success"} 이 형태 자체는 내가 직접 정의한 객체임. 이것은 직접 구조화한 데이터임. 
+		//실패시 {result:"fail"} result라는 키에 담아서 전달..
+		//Map<String,String> 형태로 만듬... Map으로 만들때는 Json으로 전달함
+		
 		
 	}
 	
@@ -83,30 +91,18 @@ public class BookingController {
 	
 	@ResponseBody
 	@GetMapping("/lesson06/searchReservation")
-	public String  searchReservation(
+	public Map<String, String> searchReservation(
 		@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
 			
+		Map<String, String> result = new HashMap<>();
 		
-			if(bookingBO.searchReservation(name, phoneNumber)) {
-				return "confirm";
-			}else {
-				return"notExist";
-			}
-		
-		
-		
-		
-		
-		
-//		Map<String,String> result = new HashMap<>();
-//		
-//		if(bookingBO.searchReservation(name, phoneNumber)) {
-//			result.put("searchReservation", "true");
-//		}else {
-//			result.put("searchReservation", "false");
-//		}
-//		
-//		return result;
+		if(bookingBO.searchReservation(name, phoneNumber)) {
+			result.put("searchReservation", "true");
+		} else {
+			result.put("searchReservation", "false");
+		}
+
+		return result;
 		
 	}
 	

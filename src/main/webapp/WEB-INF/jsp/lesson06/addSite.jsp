@@ -82,7 +82,7 @@
 					url : "/lesson06/test01/1",
 					data : {"name" : name, "address" : address},
 					success : function(data) {
-						if (data = "success") {
+						if (data == "success") {
 							alert("입력성공");
 							//window.location.href = '/lesson06/siteList';	
 							$(location).attr('href', '/lesson06/test01');	
@@ -120,7 +120,7 @@
 							$("#errorAddress").show();
 							
 						}else{
-							alert("사용 가능합니다.")
+							alert("사용 가능합니다.");
 							isDuplicateAddress = false;
 							$("#errorAddress").hide();
 						}

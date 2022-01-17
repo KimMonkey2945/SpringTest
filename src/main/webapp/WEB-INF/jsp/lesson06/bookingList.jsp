@@ -62,7 +62,7 @@
 					<c:forEach var="bookings" items="${booking }">
 						<tr>
 							<td>${bookings.name }</td>
-							
+							<!-- date객체를 우리가 원하는 형태로 만드는게 format데이트고, String 일때가 parsedate임 밑에var없이 그냥도 사용가능 -->
 							<fmt:formatDate value="${bookings.date }" pattern="yyyy년M월d일" var="Date"/>
 							<td>${Date }</td>
 							<td>${bookings.day }</td>
@@ -80,7 +80,7 @@
 									<td class="text-danger">${bookings.state }</td>
 								</c:when>
 							</c:choose>
-							
+																					<!-- 내가 새로운 데이터를 만드는 것임 데이터속성 -->
 							<td><button class="deleteBtn btn btn-danger" type="button" data-booking-id="${bookings.id }">삭제</button></td>				
 						</tr>
 					</c:forEach>

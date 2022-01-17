@@ -73,6 +73,7 @@
 			  	
 			    	$('#datepicker').datepicker({
 			    		dateFormat:"yy-mm-dd"
+			    		minDate:0
 			    	});
 			 
 			  	
@@ -89,6 +90,10 @@
 			  		}
 			  		if(date == ""){
 			  			alert("날짜를 입력하세요!!");
+			  			return;
+			  		}
+			  		if(isNaN(day)){ // 숫자로만 아루어 진게 아닐경우 true
+			  			alert("숙박일 수는 숫자만 가능 합니다.")
 			  			return;
 			  		}
 			  		if(day == ""){

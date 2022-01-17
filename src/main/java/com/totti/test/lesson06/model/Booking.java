@@ -14,8 +14,6 @@ public class Booking {
 	private String state;
 	private Date createdAt;
 	private Date updatedAt;
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -70,6 +68,9 @@ public class Booking {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	
+	
 	
 	
 }
