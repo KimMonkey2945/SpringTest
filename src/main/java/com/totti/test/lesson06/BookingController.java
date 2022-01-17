@@ -1,6 +1,8 @@
 package com.totti.test.lesson06;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,13 +20,13 @@ public class BookingController {
 	@Autowired
 	private BookingBO bookingBO;
 	
-	@GetMapping("/lesson06/addBooking")
+	@GetMapping("/lesson06/addBookingView")
 	public String addBookingView() {
 		return "lesson06/addBooking";
 	}
 	
 	@ResponseBody
-	@GetMapping("/lesson06/addbooking")
+	@GetMapping("/lesson06/addBooking")
 	public String addBooking(
 			@RequestParam("name") String name
 			,@RequestParam("date") String date
@@ -64,15 +66,49 @@ public class BookingController {
 		
 		int count = bookingBO.deleteList(id);
 		
-		if(count == 1) {
-			return "success";
-		}else {
+		if(count == 0) {
 			return "fail";
+		}else {
+			return "success";
 		}
 		
 	}
 	
+	@GetMapping("/lesson06/searchReservationView")
+	public String searchReservationView() {
+		return "lesson06/checkReservation";
+	}
 	
+	
+	
+	@ResponseBody
+	@GetMapping("/lesson06/searchReservation")
+	public String  searchReservation(
+		@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
+			
+		
+			if(bookingBO.searchReservation(name, phoneNumber)) {
+				return "confirm";
+			}else {
+				return"notExist";
+			}
+		
+		
+		
+		
+		
+		
+//		Map<String,String> result = new HashMap<>();
+//		
+//		if(bookingBO.searchReservation(name, phoneNumber)) {
+//			result.put("searchReservation", "true");
+//		}else {
+//			result.put("searchReservation", "false");
+//		}
+//		
+//		return result;
+		
+	}
 	
 	
 	

@@ -35,10 +35,10 @@
 		<header class="title text-center display-3">통나무 펜션</header>
 		<nav>
 			<ul class="nav d-flex justify-content-around"">
-				<li><a class="nav-link" href="#">팬션소개</a></li>
-				<li><a class="nav-link" href="#">객실보기</a></li>
-				<li><a class="nav-link" href="#">예약하기</a></li>
-				<li><a class="nav-link" href="#">예약목록</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">팬션소개</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">객실보기</a></li>
+				<li class="nav-item"><a class="nav-link" href="/lesson06/addBookingView">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link" href="/lesson06/bookingList">예약목록</a></li>
 			</ul>
 		</nav>
 		
@@ -76,9 +76,12 @@
 								<c:when test="${bookings.state eq '확정' }">
 									<td class="text-success">${bookings.state }</td>
 								</c:when>
+								<c:when test="${bookings.state eq '취소' }">
+									<td class="text-danger">${bookings.state }</td>
+								</c:when>
 							</c:choose>
 							
-							<td><button class="deleteBtn btn btn-danger" type="button" data-booking-id="${bookings.id}">삭제</button></td>				
+							<td><button class="deleteBtn btn btn-danger" type="button" data-booking-id="${bookings.id }">삭제</button></td>				
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -108,10 +111,11 @@
 					data:{"id":id},
 					success:function(data){
 						if(data == "success"){
-							alert("삭제성공!!")
-							location.reload();
-						} else {
-							alert("삭제실패..")
+						alert("삭제성공!!")
+						location.reload();							
+						}else{
+							alert("삭제실패");
+						return;
 						}
 					},
 					error:function(){

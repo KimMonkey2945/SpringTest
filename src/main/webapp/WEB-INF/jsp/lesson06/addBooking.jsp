@@ -33,11 +33,11 @@
 	<div class="container">
 		<header class="title text-center display-3">통나무 펜션</header>
 		<nav>
-			<ul class="nav d-flex justify-content-around"">
-				<li><a class="nav-link" href="#">팬션소개</a></li>
-				<li><a class="nav-link" href="#">객실보기</a></li>
-				<li><a class="nav-link" href="#">예약하기</a></li>
-				<li><a class="nav-link" href="#">예약목록</a></li>
+			<ul class="nav d-flex justify-content-around">
+				<li class="nav-item"><a class="nav-link" href="#">팬션소개</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">객실보기</a></li>
+				<li class="nav-item"><a class="nav-link" href="/lesson06/addBookingView">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link" href="/lesson06/bookingList">예약목록</a></li>
 			</ul>
 		</nav>
 		
@@ -106,12 +106,12 @@
 			  		
 			  	$.ajax({
 			  		type:"get",
-			  		url:"/lesson06/addbooking",
+			  		url:"/lesson06/addBooking",
 			  		data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber},
 			  		success:function(data){
-			  			if(date = "success"){
+			  			if(data == "success"){
 			  				alert("예약성공");
-			  				$(location).attr("href","/lesson06/bookingList");
+			  				location.href = "/lesson06/bookingList";
 			  			}else{
 			  				alert("예약실패");
 			  				}

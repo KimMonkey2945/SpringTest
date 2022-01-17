@@ -24,13 +24,14 @@
  			,#{state}
  			,now()
  			,now() 		
- 		)
+ 		);
  		 	
  	</insert>
  	
  	<select id="selectBooking" resultType="com.totti.test.lesson06.model.Booking">
  		SELECT
- 			`name`
+ 			`id`
+ 			,`name`
  			,`date`
  			,`day`
  			,`headcount`
@@ -41,15 +42,22 @@
  	</select>
  	
  	<delete id="deleteList" parameterType="int">
- 		DELETE
- 			count(*)
- 		FROM
+ 		DELETE FROM
  			`booking`
  		WHERE
  			`id` = #{id}
- 		
- 		
- 	
  	</delete>
+ 	
+ 	<select id="selectReservation" resultType="int" parameterType="map">
+ 		SELECT
+ 			`name`
+ 			,`date`
+ 			,`day`
+ 			,`headcount`
+ 			,`state`
+ 		FROM
+ 			`booking`
+ 	</select>
+ 	
  
  </mapper>
