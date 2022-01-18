@@ -78,6 +78,7 @@
 			 
 			  	
 			  	$("#addBookingBtn").on("click", function(){
+			  		
 			  		let name = $("#nameInput").val();
 			  		let date = $("#datepicker").val();
 			  		let day = $("#dayInput").val();
@@ -111,12 +112,11 @@
 			  		
 			  	$.ajax({
 			  		type:"get",
-			  		url:"/lesson06/addBooking",
+			  		url:"/lastPrac/addList",
 			  		data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber},
 			  		success:function(data){
-			  			if(data == "success"){
-			  				alert("예약성공");
-			  				location.href = "/lesson06/bookingList";
+			  			if(data.success == "true"){
+			  				location.href = "/lastPrac/showList";
 			  			}else{
 			  				alert("예약실패");
 			  				}

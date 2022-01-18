@@ -107,7 +107,7 @@
 				
 			$.ajax({
 				type:"get",
-				url:"/lesson06/searchReservation",
+				url:"/lastPrac/search",
 				//밑에데이터 안의 00은 컨트롤러의 파라미터와 같아야함
 				data:{"name":name, "phoneNumber":phoneNumber},
 				//data 자체가 객체를 가지고 있는 키가됨...

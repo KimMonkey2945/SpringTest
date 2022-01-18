@@ -18,8 +18,15 @@ public class LastBO {
 		return lastDAO.selectList();
 	}
 	
-	public int deleteLinst(int id) {
-		return lastDAO.deleteList();
+	public void deleteLinst(int id) {
+		 lastDAO.deleteList(id);
 	}
 	
+	public void addList(String name, String date, int day, int headcount, String phoneNumber) {
+		lastDAO.insertList(name, date, day, headcount, phoneNumber, "대기중");
+	}
+	
+	public Last searchList(String name, String phoneNumber) {
+		return lastDAO.selectSearchList(name, phoneNumber);
+	}
 }

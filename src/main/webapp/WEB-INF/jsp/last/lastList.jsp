@@ -104,7 +104,7 @@
         				url:"/lastPrac/deleteList",
         				data:{"id":id},
         				success:function(data){
-        					if(data.success == "true"){
+        					if(data.map == "success"){
         						location.reload();
         					}else{
         						alert("삭제실패!!");

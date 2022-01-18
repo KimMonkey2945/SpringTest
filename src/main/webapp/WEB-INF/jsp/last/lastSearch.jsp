@@ -80,5 +80,66 @@
 
 
         </div>
+        
+        
+        <script>
+        	$.(document).ready(function(){
+        		$.("#lookupBtn").on("click", function(){
+        			let name = $("#nameInput").val();
+    				let phoneNumber = $("#phoneNumberInput").val();
+    				
+    				if(name == ""){
+    					alert("이름을 입력하세요!!")
+    					return;
+    				}
+    				if(phoneNumber == ""){
+    					alert("전화번호를 입력하세요!!")
+    					return;
+    				}
+    				
+    				
+    			$.ajax({
+    				type:"get",
+    				url:"/lesson06/searchReservation",
+    				//밑에데이터 안의 00은 컨트롤러의 파라미터와 같아야함
+    				data:{"name":name, "phoneNumber":phoneNumber},
+    				//data 자체가 객체를 가지고 있는 키가됨...
+    				success:function(data){
+    					if(data){
+    						alert("이름: " + data.name + "\n" +
+    								"날짜: " + data.date + "\n" +
+    								"일수: " + data.day + "\n" +
+    								"인원: " + data.headcount + "\n" +
+    								"상태: " + data.state + "\n" );
+    						location.href = "/lesson06/bookingList";
+    					}else{
+    						alert("조회 결과가 없습니다..");
+    					}
+    				},
+    				error:function(){
+    					alert("에러발생");
+    				}
+    				
+    				});
+    				
+    			});
+    			
+    			
+    		});
+        
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 </body>
 </html>

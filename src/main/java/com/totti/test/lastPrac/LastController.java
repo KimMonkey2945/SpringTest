@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.totti.test.lastPrac.bo.LastBO;
@@ -32,18 +33,61 @@ public class LastController {
 	
 	@ResponseBody
 	@GetMapping("/lastPrac/deleteList")
-	public Map<String, String> deleteList(int id){
+	public Map<String, String> deleteList(Model model, int id){
 		 
 		Map<String, String> map = new HashMap<>();
-		int count = lastBO.deleteLinst(id);
+		 lastBO.deleteLinst(id);
 		 
-		if(count == 1) {
-			map.put("success", "true");
-		}else {
-			map.put("success", "fail");
-		}
+		map.put("map", "success"); 
+		
 		
 		return map;
-		
 	}
+	
+	@GetMapping("/lastPrac/addListView")
+	public String addListView() {
+		return "/last/lastAdd";
+	}
+	
+	
+	@ResponseBody
+	@GetMapping("/lastPrac/addList")
+	public Map<String, String> addList(@RequestParam("name") String name
+										,@RequestParam("date") String date
+										,@RequestParam("day") int day
+										,@RequestParam("headcount") int headcount
+										,@RequestParam("phoneNumber") String number
+										){
+		
+		lastBO.addList(name, date, day, headcount, number);
+		
+		Map<String, String> result = new HashMap<>();
+		result.put("success", "true");
+		
+		return result;
+	}
+	
+	
+	
+	@ResponseBody
+	@GetMapping("/lastPrac/search")
+	public Last searchList(@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
+		Last last = lastBO.searchList(name, phoneNumber);
+		// 조회된 데이터가 없으면 객체는 null
+		// 데이터를 가져올때는 새로 만들 필요 없음 
+		
+		return last;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

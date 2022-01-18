@@ -21,5 +21,42 @@
  		DELETE FROM `booking`
  		WHERE id = #{id}
  	</delete>
+ 	
+ 	<insert id="insertList" parameterType="map">
+ 		INSERT INTO `booking`
+ 		(	`name`
+ 			,`date`
+ 			,`day`
+ 			,`headcount`
+ 			,`phoneNumber`
+ 			,`state`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES(
+ 			#{name}
+ 			,#{date}
+ 			,#{day}
+ 			,#{headcount}
+ 			,#{phoneNumber}
+ 			,#{state}
+ 			,now()
+ 			,now() 		
+ 		);
+ 		
+ 	</insert>
+ 	
+ 	<select id="selectReservation" resultType="com.totti.test.lesson06.model.Booking" parameterType="map">
+ 		SELECT
+ 			`name`
+ 			,`date`
+ 			,`day`
+ 			,`headcount`
+ 			,`state`
+ 		FROM
+ 			`booking`
+ 		WHERE
+ 			`name` = #{name} 
+ 			AND `phoneNumber` = #{phoneNumber}
+ 	</select>
  
  </mapper>
