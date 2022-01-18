@@ -112,8 +112,13 @@
 				data:{"name":name, "phoneNumber":phoneNumber},
 				//data 자체가 객체를 가지고 있는 키가됨...
 				success:function(data){
-					if(data.searchReservation == "true"){
-						
+					if(data){
+						alert("이름: " + data.name + "\n" +
+								"날짜: " + data.date + "\n" +
+								"일수: " + data.day + "\n" +
+								"인원: " + data.headcount + "\n" +
+								"상태: " + data.state + "\n" );
+						location.href = "/lesson06/bookingList";
 					}else{
 						alert("조회 결과가 없습니다..");
 					}

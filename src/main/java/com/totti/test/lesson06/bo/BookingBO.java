@@ -27,14 +27,7 @@ public class BookingBO {
 		return bookingDAO.deleteList(id);
 	}
 	
-	public boolean searchReservation(String name, String phoneNumber) {
-	int count =	bookingDAO.selectReservation(name, phoneNumber);
-	
-		if(count == 1) {
-			return true;
-		}else{
-			return false;
-		}
-	
+	public Booking searchReservation(String name, String phoneNumber) {
+	return bookingDAO.selectReservation(name, phoneNumber);
 	}
 }

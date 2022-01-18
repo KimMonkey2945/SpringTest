@@ -48,7 +48,7 @@
  			`id` = #{id}
  	</delete>
  	
- 	<select id="selectReservation" resultType="int" parameterType="String">
+ 	<select id="selectReservation" resultType="com.totti.test.lesson06.model.Booking" parameterType="map">
  		SELECT
  			`name`
  			,`date`
@@ -59,7 +59,7 @@
  			`booking`
  		WHERE
  			`name` = #{name} 
- 			, `phoneNumber` = #{phoneNumber}
+ 			AND `phoneNumber` = #{phoneNumber}
  	</select>
  	
  

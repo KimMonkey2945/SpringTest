@@ -91,18 +91,12 @@ public class BookingController {
 	
 	@ResponseBody
 	@GetMapping("/lesson06/searchReservation")
-	public Map<String, String> searchReservation(
+	public Booking searchReservation(
 		@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
 			
-		Map<String, String> result = new HashMap<>();
+		Booking booking = bookingBO.searchReservation(name, phoneNumber);
 		
-		if(bookingBO.searchReservation(name, phoneNumber)) {
-			result.put("searchReservation", "true");
-		} else {
-			result.put("searchReservation", "false");
-		}
-
-		return result;
+		return booking;
 		
 	}
 	
