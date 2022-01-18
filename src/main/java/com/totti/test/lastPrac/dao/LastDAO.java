@@ -10,4 +10,6 @@ import com.totti.test.lastPrac.model.Last;
 public interface LastDAO {
 
 	public List<Last> selectList();
+	
+	public int deleteList();
 }

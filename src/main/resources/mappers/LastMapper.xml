@@ -6,7 +6,8 @@
  
  	<select id="selectList" resultType="com.totti.test.lastPrac.model.Last">
  		SELECT
- 			`name`
+ 			`id`
+ 			,`name`
  			,`date`
  			,`day`
  			,`headcount`
@@ -15,5 +16,10 @@
  		FROM
  			`booking`
  	</select>
+ 	
+ 	<delete id="deleteList" parameterType="int">
+ 		DELETE FROM `booking`
+ 		WHERE id = #{id}
+ 	</delete>
  
  </mapper>

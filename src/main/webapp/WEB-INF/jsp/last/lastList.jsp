@@ -67,7 +67,7 @@
                 				</c:when>
                 			</c:choose>
                 			
-                			<td><input class="deleteBtn btn btn-danger" type="button" value="삭제" ></td>
+                			<td><input class="deleteBtn btn btn-danger" type="button" value="삭제" data-last-del="${last.id }"></td>
                 		</tr>
                 		</c:forEach>
                 	</tbody>
@@ -93,5 +93,48 @@
 
 
         </div>
+        
+        <script>
+        	$(document).ready(function(){
+        		$(".deleteBtn").on("click", function(){
+        			var id = $(this).data("last-del");
+        			
+        		$.ajax({
+        				type:"get",
+        				url:"/lastPrac/deleteList",
+        				data:{"id":id},
+        				success:function(data){
+        					if(data.success == "true"){
+        						location.reload();
+        					}else{
+        						alert("삭제실패!!");
+        						return;
+        					}
+        				},
+        				error:function(){
+        					alert("에러발생");
+        				}
+        			});
+        		});
+        		
+        	});
+        
+        
+        
+        
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 </body>
 </html>

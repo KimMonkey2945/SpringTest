@@ -18,4 +18,8 @@ public class LastBO {
 		return lastDAO.selectList();
 	}
 	
+	public int deleteLinst(int id) {
+		return lastDAO.deleteList();
+	}
+	
 }
