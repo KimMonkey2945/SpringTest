@@ -67,16 +67,30 @@ public class LastController {
 		return result;
 	}
 	
+	@GetMapping("/lastPrac/main")
+	public String getMain() {
+		return "last/lastSearch";
+	}
+	
 	
 	
 	@ResponseBody
 	@GetMapping("/lastPrac/search")
-	public Last searchList(@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
+	public Map<String, Object> searchList(@RequestParam("name") String name, @RequestParam("phoneNumber") String phoneNumber) {
+		Map<String, Object> map = new HashMap<>();
+		
 		Last last = lastBO.searchList(name, phoneNumber);
 		// 조회된 데이터가 없으면 객체는 null
 		// 데이터를 가져올때는 새로 만들 필요 없음 
 		
-		return last;
+		if(last == null) {
+			map.put("result", "fail");
+		}else {
+			map.put("result", "success");
+			map.put("last", last);
+		}
+		
+		return map;
 	}
 	
 	

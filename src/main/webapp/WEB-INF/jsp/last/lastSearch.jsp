@@ -30,7 +30,7 @@
             </header>
 
             <section class="banner">
-                <img src="test06_banner1.jpg" id="bannerImage">
+                <img src="" id="bannerImage">
             </section>
             <sction class="d-flex">
                 <article class="reservation d-flex justify-content-center align-items-center">
@@ -45,14 +45,14 @@
                             <h3 class="mr-4">예약 확인</h3>
                   
 
-                        <div class="no-member-input mt-3 d-none" id="nonMember">
+                        
                             <div class="input-gorup form-inline">
                                 <label class="input-label">이름 </label>
-                                <input type="text" class="form-control text-input" id="name">
+                                <input type="text" class="form-control text-input" id="nameInput" name="name">
                             </div>
                             <div class="input-gorup form-inline mt-3">
                                 <label class="input-label">전화번호 </label>
-                                <input type="text" class="form-control text-input" id="phoneNumber">
+                                <input type="text" class="form-control text-input" id="phoneNumberInput" name="phoneNumber">
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
@@ -83,8 +83,8 @@
         
         
         <script>
-        	$.(document).ready(function(){
-        		$.("#lookupBtn").on("click", function(){
+        	$(document).ready(function(){
+        		$("#lookupBtn").on("click", function(){
         			let name = $("#nameInput").val();
     				let phoneNumber = $("#phoneNumberInput").val();
     				
@@ -100,19 +100,19 @@
     				
     			$.ajax({
     				type:"get",
-    				url:"/lesson06/searchReservation",
+    				url:"/lastPrac/search",
     				//밑에데이터 안의 00은 컨트롤러의 파라미터와 같아야함
     				data:{"name":name, "phoneNumber":phoneNumber},
     				//data 자체가 객체를 가지고 있는 키가됨...
     				success:function(data){
-    					if(data){
-    						alert("이름: " + data.name + "\n" +
-    								"날짜: " + data.date + "\n" +
-    								"일수: " + data.day + "\n" +
-    								"인원: " + data.headcount + "\n" +
-    								"상태: " + data.state + "\n" );
+    					if(data.result == "success"){
+    						alert("이름: " + data.last.name + "\n" +
+    								"날짜: " + data.last.date + "\n" +
+    								"일수: " + data.last.day + "\n" +
+    								"인원: " + data.last.headcount + "\n" +
+    								"상태: " + data.last.state + "\n" );
     						location.href = "/lesson06/bookingList";
-    					}else{
+    					}else if(data.result == "fail"){
     						alert("조회 결과가 없습니다..");
     					}
     				},

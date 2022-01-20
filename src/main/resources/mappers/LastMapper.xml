@@ -45,7 +45,7 @@
  		
  	</insert>
  	
- 	<select id="selectReservation" resultType="com.totti.test.lesson06.model.Booking" parameterType="map">
+ 	<select id="selectSearchList" resultType="com.totti.test.lastPrac.model.Last" parameterType="map">
  		SELECT
  			`name`
  			,`date`
